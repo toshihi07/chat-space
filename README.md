@@ -26,20 +26,19 @@ Things you may want to cover:
 ## users
 |column|type|options|
 |------|----|-------|
-|name|string|null: false|
-|email|string|null: false, foreign_key: true|
-|password|string|null: false|
+|name|string|null: false, index: true|
 ### association
 has_many :messages
-belong_to :group
+has_many :groups
+has_many :groups through: :groups_users
 
 ## messages
 |column|type|options|
 |------|----|-------|
 |message|text||
 |image|string||
-|user_id|interger|null:false,foreign_key:true|
-|group_id|interger|null:false,foreign_key:true|
+|user_id|reference|null:false,foreign_key:true|
+|group_id|reference|null:false,foreign_key:true|
 ### association
 belongs_to :group
 belongs_to :user
@@ -47,17 +46,17 @@ belongs_to :user
 ## groups
 |column|type|options|
 |------|----|-------|
-|group_name|string|null: false, unique: true|
+|name|string|null: false, unique: true|
 ### association
 has_many :groups_users
-has_many :users, through: groups_users
+has_many :users, through: :groups_users
 has_many :messages
 
 ## groups_usersテーブル
 |column|type|options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 ### Association
  belongs_to :group
  belongs_to :user
