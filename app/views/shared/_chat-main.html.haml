@@ -1,0 +1,32 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      %h2.main-header__left-box__current-group{"data-group_id" => "1345"}
+        現在のグループ
+      %ul.main-header__left-box__member-list
+        Member：
+        %li.main-header__left-box__member-list__member メンバー１
+        %li.main-header__left-box__member-list__member メンバー２
+    .main-header__right-box
+      .main-header__right-box__edit-btn
+        Edit
+  .messages
+    .message{"data-message_id" => "2845"}
+      .message__upper-info
+        %p.message__upper-info__talker メッセンジャー
+        %p.message__upper-info__date 2019/09/14(Sat) 20:08:40
+      .lower__text 
+        .lower__text__content
+          メッセージ
+            
+  .form
+    %form
+      %input.form__message
+      .form__mask
+        %label.form__mask__image
+          = fa_icon 'picture-o', class: 'icon'
+          %input.hidden{type: 'file'}
+      %input.form__submit{type: 'submit', value: 'Send'}
+    
+        
+        
