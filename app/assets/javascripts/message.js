@@ -46,7 +46,6 @@ $(document).on('turbolinks:load', function() {
       $(".form__submit").prop('disabled', false);
       Scroll();
     })
-    // console.log(message)
     .fail(function(){
       alert('メッセージの送信に失敗しました');
     })
