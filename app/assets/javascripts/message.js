@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function() {
   function buildHTML(message){
-    console.log(message)
     var MessageImage = message.image ? `<img src="${message.image}" class="lower-message__image">` : ``;
     var html = `
         <div class="message" data-message_id="${message.id}">
@@ -39,7 +38,6 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data){
-      console.table(data)
       var html = buildHTML(data);
       $('.messages').append(html);
       $('#new_message')[0].reset();
