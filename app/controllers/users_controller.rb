@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
 
   def index
+    @users = User.where('name LIKE(?) and id NOT IN (?)', "%#{params[:keyword]}%", excluded_users)
+    respond_to do |format|
+      # format.html
+      format.json
+    end
   end
   
   def edit
